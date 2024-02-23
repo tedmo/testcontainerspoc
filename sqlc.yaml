@@ -1,0 +1,13 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "internal/postgres/query.sql"
+    schema: "migrations/ddl"
+    gen:
+      go:
+        package: "sqlc"
+        out: "internal/postgres/sqlc"
+        sql_package: "sql/db"
+        emit_interface: true
+        emit_empty_slices: true
+        emit_methods_with_db_argument: true
